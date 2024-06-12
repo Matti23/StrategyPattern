@@ -1,0 +1,33 @@
+1 -> Strategy 
+    -   Interfaccia che definisce il metodo execute() che tutte le strategie concrete devono implementare.
+
+2 -> ConcreteStrategyA e ConcreteStrategyB:
+
+    -   Implementazioni concrete della strategia, ciascuna con la propria logica specifica.
+
+3 -> Context
+    -   Classe che contiene un riferimento a una strategia (strategy) e offre un metodo setStrategy() per configurare la strategia da utilizzare.
+    -   Metodo executeStrategy() che delega l'esecuzione della logica alla strategia attualmente configurata.
+
+4 -> StrategyPatternDemo
+    -   Crea un'istanza di Context e configura diverse strategie.
+    -   Esegue le strategie configurate per dimostrare come il comportamento del contesto possa variare in base alla strategia scelta.
+
+----UML----
++-------------------+       +-------------------+
+|      Context      |       |      Strategy     |
++-------------------+       +-------------------+
+| - strategy:       |<------| + execute()       |
+|    Strategy       |       +-------------------+
+|-------------------|               
+| + setStrategy()   |               
+| + executeStrategy() |           
++-------------------+
+       /_\
+        |
+        |
++---------------------+   +---------------------+
+|  ConcreteStrategyA  |   |  ConcreteStrategyB  |
++---------------------+   +---------------------+
+| + execute()         |   | + execute()         |
++---------------------+   +---------------------+
